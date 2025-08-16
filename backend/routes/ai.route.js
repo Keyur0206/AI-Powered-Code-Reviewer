@@ -5,4 +5,4 @@ const router=express.Router({ mergeParams: true })
 router.post("/get-response",response)
 
 
-export{router}
+export{router} 
