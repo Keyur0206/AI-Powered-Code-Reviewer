@@ -1,0 +1,253 @@
+/* =========================
+   Reset & Base Styles
+   ========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  background-color: #1e1e1e;
+  overflow: hidden;
+  font-family: "Inter", sans-serif;
+}
+
+/* =========================
+   Scrollbar Styling
+   ========================= */
+.left,
+.right {
+  scrollbar-width: thin;
+  scrollbar-color: #6b6b6b transparent;
+}
+
+.left::-webkit-scrollbar,
+.right::-webkit-scrollbar {
+  width: 6px;
+}
+
+.left::-webkit-scrollbar-thumb,
+.right::-webkit-scrollbar-thumb {
+  background-color: #6b6b6b;
+  border-radius: 10px;
+}
+
+.left::-webkit-scrollbar-thumb:hover,
+.right::-webkit-scrollbar-thumb:hover {
+  background-color: #999;
+}
+
+.left::-webkit-scrollbar-track,
+.right::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* =========================
+   Layout
+   ========================= */
+main {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  background-color: #0f0f0f;
+  /* overflow-y: overlay; */
+}
+
+main .left,
+main .right {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #2a2a2a;
+  border-radius: 16px;
+  /* overflow-y: overlay; */
+}
+
+main .left {
+  flex: 1;
+  background-color: #141414;
+  color: #fff;
+  overflow-y: overlay;
+}
+
+main .right {
+  flex: 1.5;
+  overflow-y: auto;
+  background-color: #1e1e1e;
+  padding: 20px;
+  color: #e0e0e0;
+  font-family: "Fira Code", monospace;
+  line-height: 1.6;
+  word-break: break-word;
+}
+
+/* =========================
+   Left Section
+   ========================= */
+.code {
+  flex: 1;
+  padding: 20px;
+}
+
+.review {
+  position: sticky;
+  bottom: 10px;
+  right: 900px;
+  align-self: flex-end;
+  padding: 10px 16px;
+  border-radius: 8px;
+  background-color: #3a3a3a;
+  color: white;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out, transform 0.1s ease-in-out;
+}
+
+.review:hover:not(:disabled) {
+  background-color: #505050;
+  transform: translateY(-2px);
+}
+
+.review:disabled {
+  background-color: #777;
+  cursor: not-allowed;
+}
+
+/* =========================
+   Markdown Styling
+   ========================= */
+.markdown-output {
+  width: 100%;
+}
+
+.markdown-output h1,
+.markdown-output h2,
+.markdown-output h3 {
+  color: #4da3ff;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.markdown-output p {
+  margin-bottom: 12px;
+}
+
+.markdown-output ul,
+.markdown-output ol {
+  padding-left: 20px;
+}
+
+.markdown-output li {
+  margin-bottom: 6px;
+}
+
+/* Blockquotes */
+.markdown-output blockquote {
+  border-left: 4px solid #6a9955;
+  margin: 10px 0;
+  padding-left: 12px;
+  color: #9cdcfe;
+  font-style: italic;
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* Code Blocks */
+.markdown-output pre {
+  padding: 14px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.markdown-output code {
+  font-size: 14px;
+  background: #2f2f2f;
+  overflow: scroll;
+  padding: 2px 5px;
+  border-radius: 4px;
+  color: #f5d67b;
+}
+
+/* Inline Code */
+.markdown-output p code {
+  background-color: #333;
+  color: #f78c6c;
+
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+/* Tables */
+.markdown-output table {
+  border-collapse: collapse;
+  margin: 16px 0;
+  width: 100%;
+}
+
+.markdown-output th,
+.markdown-output td {
+  border: 1px solid #444;
+  padding: 8px 12px;
+}
+
+.markdown-output th {
+  background-color: #2d2d2d;
+  color: #f5d67b;
+}
+
+.markdown-output td {
+  background-color: #252526;
+}
+
+/* =========================
+   Loader
+   ========================= */
+.loader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  color: #ccc;
+}
+
+.loader-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid transparent;
+  border-top-color: #00ffae;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================
+   Mobile View
+   ========================= */
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+
+  main .left,
+  main .right {
+    height: 50%;
+    width: 100%;
+  }
+
+  .code {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
