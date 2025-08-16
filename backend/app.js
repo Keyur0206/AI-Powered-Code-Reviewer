@@ -12,4 +12,4 @@ app.listen(port, () => {
   console.log(`App is listing on ${port}`);
 });
 
-app.use("/ai", ai);
+app.use("/ai", ai); 
